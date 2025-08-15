@@ -18,8 +18,6 @@ class RecipesManager {
             btn.addEventListener('click', (e) => this.handleFilter(e.target.dataset.category));
         });
 
-        // Initialize theme from main site
-        this.initializeTheme();
     }
 
     handleSearch(searchTerm) {
@@ -29,9 +27,7 @@ class RecipesManager {
         this.recipeItems.forEach(item => {
             const title = item.querySelector('h3')?.textContent.toLowerCase() || '';
             const description = item.querySelector('.recipe-desc')?.textContent.toLowerCase() || '';
-            
             const isVisible = !term || title.includes(term) || description.includes(term);
-            
             item.classList.toggle('hidden', !isVisible);
             if (isVisible) visibleCount++;
         });
@@ -56,7 +52,6 @@ class RecipesManager {
 
     showNoResults(show) {
         const existingMessage = document.querySelector('.no-results');
-        
         if (show && !existingMessage) {
             const noResultsDiv = document.createElement('div');
             noResultsDiv.className = 'no-results';
@@ -68,20 +63,6 @@ class RecipesManager {
             this.recipesGrid.appendChild(noResultsDiv);
         } else if (!show && existingMessage) {
             existingMessage.remove();
-        }
-    }
-
-    initializeTheme() {
-        const savedTheme = localStorage.getItem('dfj-theme') || 'gradient-light';
-        document.documentElement.setAttribute('data-theme', savedTheme);
-        
-        const themeButton = document.getElementById('themeToggle');
-        const themeIcons = ['fas fa-palette', 'fas fa-sun', 'fas fa-moon'];
-        const themes = ['gradient-light', 'light', 'dark'];
-        const currentIndex = themes.indexOf(savedTheme);
-        
-        if (themeButton && currentIndex !== -1) {
-            themeButton.querySelector('i').className = themeIcons[currentIndex];
         }
     }
 }
@@ -283,8 +264,7 @@ class RecipeCardInteractions {
     createModal() {
         let modal = document.querySelector('.recipe-modal');
         if (!modal) {
-            modal = document.createElement('div');
-            modal.className = 'recipe-modal';
+            modal = Utils.createModal('recipe-modal');
             modal.innerHTML = `
                 <div class="recipe-modal-content">
                     <div class="recipe-modal-header">
@@ -296,17 +276,13 @@ class RecipeCardInteractions {
             `;
             document.body.appendChild(modal);
             
-            // Close modal events
-            modal.addEventListener('click', (e) => {
-                if (e.target === modal) {
+            const closeHandler = (e) => {
+                if (e.target === modal || e.target.closest('.recipe-modal-close')) {
                     this.closeModal(modal);
                 }
-            });
+            };
             
-            modal.querySelector('.recipe-modal-close').addEventListener('click', () => {
-                this.closeModal(modal);
-            });
-            
+            modal.addEventListener('click', closeHandler);
             document.addEventListener('keydown', (e) => {
                 if (e.key === 'Escape' && modal.classList.contains('active')) {
                     this.closeModal(modal);
