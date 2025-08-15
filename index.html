@@ -17,10 +17,7 @@
       href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Fredoka+One&display=swap"
       rel="stylesheet"
     />
-    <link 
-      rel="icon" type="image/jpeg" href="dfj logo2.jpg"
-    />
-
+    <link rel="icon" type="image/jpeg" href="dfj logo2.jpg" />
   </head>
   <body>
     <!-- Header -->
@@ -28,7 +25,11 @@
       <nav class="navbar">
         <div class="nav-container">
           <div class="nav-logo">
-            <img src="dfj logo2.jpg" alt="Deb's Flavor Junction" class="logo-img">
+            <img
+              src="dfj logo2.jpg"
+              alt="Deb's Flavor Junction"
+              class="logo-img"
+            />
             <span class="logo-text"
               ><span class="logo-orange">Deb's Flavor</span>
               <span class="logo-green">Junction</span></span
@@ -65,7 +66,7 @@
 
             <div class="theme-toggle">
               <button id="themeToggle" class="theme-btn">
-                <i class="fas fa-sun"></i>
+                <i class="fas fa-palette"></i>
               </button>
             </div>
 
@@ -86,31 +87,52 @@
           <div class="hero-text">
             <h1>🙏 আমাদের চ্যানেলে স্বাগতম</h1>
             <h2>Welcome to Deb's Flavor Junction</h2>
-          <p>
-            Your go-to destination for authentic Bengali recipes and Indian
-            cooking!
-          </p>
-          <p class="bengali-text">
-            ভালো লাগলে লাইক, কমেন্টস আর একটা সাবস্ক্রাইব করে যাবেন প্লীজ।
-          </p>
-          <div class="hero-buttons">
-            <a href="recipes.html" class="btn btn-primary">Explore Recipes</a>
-            <a
-              href="https://youtube.com/@debsflavorjunction?si=5f8spOsoht48cDJE"
-              target="_blank"
-              class="btn btn-secondary"
-            >
-              <i class="fab fa-youtube"></i> Subscribe Now
-            </a>
-            <button class="btn btn-membership" id="membershipBtn">
-              <i class="fas fa-crown"></i> Join Membership
-            </button>
-          </div>
+            <p>
+              Your go-to destination for authentic Bengali recipes and Indian
+              cooking!
+            </p>
+            <p class="bengali-text">
+              ভালো লাগলে লাইক, কমেন্টস আর একটা সাবস্ক্রাইব করে যাবেন প্লীজ।
+            </p>
+            <div class="hero-buttons">
+              <a href="recipes.html" class="btn btn-primary">Explore Recipes</a>
+              <a
+                href="https://youtube.com/@debsflavorjunction?si=5f8spOsoht48cDJE"
+                target="_blank"
+                class="btn btn-secondary"
+              >
+                <i class="fab fa-youtube"></i> Subscribe Now
+              </a>
+              <button class="btn btn-membership" id="membershipBtn">
+                <i class="fas fa-crown"></i> Join Membership
+              </button>
+            </div>
           </div>
         </div>
         <div class="hero-right">
           <div class="hero-logo-section">
-            <img src="dfj logo2.jpg" alt="Deb's Flavor Junction" class="hero-logo">
+            <div class="hero-image-grid">
+              <img
+                src="dfj_hero_inspiration_02.jpg"
+                alt="DFJ Food 1"
+                class="hero-grid-img"
+              />
+              <img
+                src="dfj_hero_inspiration_03.jpg"
+                alt="DFJ Food 2"
+                class="hero-grid-img"
+              />
+              <img
+                src="dfj_hero_inspiration_04.jpg"
+                alt="DFJ Food 3"
+                class="hero-grid-img"
+              />
+              <img
+                src="dfj_hero_inspiration_05.jpg"
+                alt="DFJ Food 4"
+                class="hero-grid-img"
+              />
+            </div>
           </div>
         </div>
       </div>
@@ -122,79 +144,49 @@
         <h2 class="section-title">Featured Delicacies</h2>
         <div class="recipe-grid">
           <div class="recipe-card">
-            <img src="Christmas Cake.jpg" alt="Christmas Cake" />
-            <div class="recipe-info">
-              <h3>ক্রিসমাস কেক | Christmas Cake</h3>
-              <p class="recipe-time">⏱️ 2 hours</p>
-            </div>
+            <div class="recipe-overlay"></div>
+            <div class="recipe-name">ক্রিসমাস কেক<br />Christmas Cake</div>
           </div>
 
           <div class="recipe-card">
-            <img src="Carrot Kheer.jpg" alt="Carrot Kheer" />
-            <div class="recipe-info">
-              <h3>গাজরের খীর | Carrot Kheer</h3>
-              <p class="recipe-time">⏱️ 40 mins</p>
-            </div>
+            <div class="recipe-overlay"></div>
+            <div class="recipe-name">গাজরের খীর<br />Carrot Kheer</div>
           </div>
 
           <div class="recipe-card">
-            <img src="Basanti Pulao.jpg" alt="Basanti Pulao" />
-            <div class="recipe-info">
-              <h3>বাসন্তী পোলাও | Basanti Pulao</h3>
-              <p class="recipe-time">⏱️ 45 mins</p>
-            </div>
+            <div class="recipe-overlay"></div>
+            <div class="recipe-name">বাসন্তী পোলাও<br />Basanti Pulao</div>
           </div>
 
           <div class="recipe-card">
-            <img src="90's Chicken Recipie.jpg" alt="Chicken Curry" />
-            <div class="recipe-info">
-              <h3>মুরগির মাংস | Chicken Curry</h3>
-              <p class="recipe-time">⏱️ 50 mins</p>
-            </div>
+            <div class="recipe-overlay"></div>
+            <div class="recipe-name">মুরগির মাংস<br />Chicken Curry</div>
           </div>
 
           <div class="recipe-card">
-            <img src="Matar paneer recipe.jpg" alt="Matar Paneer" />
-            <div class="recipe-info">
-              <h3>মটর পনির | Matar Paneer</h3>
-              <p class="recipe-time">⏱️ 30 mins</p>
-            </div>
+            <div class="recipe-overlay"></div>
+            <div class="recipe-name">মটর পনির<br />Matar Paneer</div>
           </div>
 
           <div class="recipe-card">
-            <img src="Kadhai Chicken Recipe.jpg" alt="Kadhai Chicken" />
-            <div class="recipe-info">
-              <h3>কড়াই চিকেন | Kadhai Chicken</h3>
-              <p class="recipe-time">⏱️ 45 mins</p>
-            </div>
+            <div class="recipe-overlay"></div>
+            <div class="recipe-name">কড়াই চিকেন<br />Kadhai Chicken</div>
           </div>
 
           <div class="recipe-card">
-            <img src="moglai paratha recipe.jpg" alt="Moglai Paratha" />
-            <div class="recipe-info">
-              <h3>মোগলাই পরোটা | Moglai Paratha</h3>
-              <p class="recipe-time">⏱️ 45 mins</p>
-            </div>
+            <div class="recipe-overlay"></div>
+            <div class="recipe-name">মোগলাই পরোটা<br />Moglai Paratha</div>
           </div>
 
           <div class="recipe-card">
-            <img src="Egg Tadka Recipe.jpg" alt="Egg Tadka" />
-            <div class="recipe-info">
-              <h3>ডিম তড়কা | Egg Tadka</h3>
-              <p class="recipe-time">⏱️ 15 mins</p>
-            </div>
-          </div>
-
-          <div class="recipe-card">
-            <img src="Kalo jamuner recipe.jpg" alt="Kalojam" />
-            <div class="recipe-info">
-              <h3>কালোজাম | Black Plum Sweet</h3>
-              <p class="recipe-time">⏱️ 60 mins</p>
-            </div>
+            <div class="recipe-overlay"></div>
+            <div class="recipe-name">ডিম তড়কা<br />Egg Tadka</div>
           </div>
         </div>
         <div class="view-all-recipes">
-          <a href="recipes.html" class="btn btn-primary">View All 25+ Recipes</a>
+          <a href="recipes.html" class="btn btn-primary"
+            >View All 25+ Recipes</a
+          >
         </div>
       </div>
     </section>
@@ -203,62 +195,62 @@
     <section id="about" class="about">
       <div class="container">
         <div class="about-content">
-          <div class="about-text">
-            <h2>👨‍🍳 Meet Chef Debdas Biswas - The Heart of DFJ</h2>
-            <div class="about-intro">
+          <h2 class="section-title">About Us</h2>
+          <div class="about-intro">
+            <p>
+              🌟 Step into the aromatic world of
+              <strong>Deb's Flavor Junction</strong> - where every spice tells a
+              story and every recipe carries the soul of Bengal! From our humble
+              kitchen to your dining table, we've crafted
+              <strong>100 mouthwatering recipes</strong>, built a loving family
+              of <strong>10,000 subscribers</strong>, and shared culinary magic
+              through <strong>4 million views</strong> across the globe. Join us
+              on this flavorful journey! 🍛✨
+            </p>
+          </div>
+
+          <div class="about-features">
+            <div class="feature-item">
+              <i class="fas fa-utensils"></i>
+              <h3>Authentic Recipes</h3>
               <p>
-                🌟 Born in the bustling kitchens of Kolkata, <strong>Deb's Flavor Junction</strong> is more than just a cooking channel - 
-                it's a bridge connecting Bengali hearts worldwide through the universal language of food. Chef Debdas Biswas transforms 
-                his grandmother's handwritten recipes into modern culinary masterpieces.
+                Traditional Bengali and Indian recipes passed down through
+                generations, perfected with love and care in our family kitchen.
               </p>
             </div>
-
-            <div class="about-features">
-              <div class="feature-item">
-                <i class="fas fa-home"></i>
-                <h3>Family Legacy Recipes</h3>
-                <p>Every dish carries the soul of Bengali households - from secret spice blends to traditional cooking techniques that have been perfected over decades in our family kitchen.</p>
-              </div>
-              <div class="feature-item">
-                <i class="fas fa-globe-asia"></i>
-                <h3>Global Bengali Community</h3>
-                <p>Connecting Bengali food lovers across continents, helping them recreate the taste of home no matter where they are in the world.</p>
-              </div>
-              <div class="feature-item">
-                <i class="fas fa-seedling"></i>
-                <h3>Sustainable Cooking</h3>
-                <p>Promoting eco-friendly cooking practices while maintaining authenticity - using seasonal ingredients and traditional preservation methods.</p>
-              </div>
-            </div>
-
-            <div class="about-description">
+            <div class="feature-item">
+              <i class="fas fa-users"></i>
+              <h3>Growing Community</h3>
               <p>
-                🎭 From festive <strong>Durga Puja specials</strong> to everyday comfort foods like <strong>Khichuri</strong> and <strong>Begun Bhaja</strong>, 
-                we celebrate the diversity of Bengali cuisine. Our recipes span from the royal kitchens of <strong>Nawabi cuisine</strong> to 
-                humble village delicacies that tell stories of Bengal's rich cultural tapestry.
-              </p>
-              <p>
-                🌶️ What makes us unique? We don't just teach recipes - we share the emotions, memories, and cultural significance behind each dish. 
-                Every video is a journey through Bengal's culinary landscape, complete with tips on ingredient sourcing, seasonal variations, and modern adaptations.
+                Join thousands of food enthusiasts who trust us for authentic
+                flavors and step-by-step cooking guidance.
               </p>
             </div>
+            <div class="feature-item">
+              <i class="fas fa-heart"></i>
+              <h3>Made with Love</h3>
+              <p>
+                Every recipe is crafted with passion, bringing the warmth of
+                home-cooked meals to kitchens worldwide.
+              </p>
+            </div>
+          </div>
 
-            <div class="about-stats">
-              <div class="stat">
-                <i class="fas fa-award"></i>
-                <h3>25+</h3>
-                <p>Signature Recipes</p>
-              </div>
-              <div class="stat">
-                <i class="fas fa-heart"></i>
-                <h3>15K+</h3>
-                <p>Food Lovers</p>
-              </div>
-              <div class="stat">
-                <i class="fas fa-star"></i>
-                <h3>5M+</h3>
-                <p>Happy Moments</p>
-              </div>
+          <div class="about-stats">
+            <div class="stat">
+              <i class="fas fa-book-open"></i>
+              <h3>100</h3>
+              <p>Recipes</p>
+            </div>
+            <div class="stat">
+              <i class="fas fa-users"></i>
+              <h3>10,000</h3>
+              <p>Subscribers</p>
+            </div>
+            <div class="stat">
+              <i class="fas fa-eye"></i>
+              <h3>4M</h3>
+              <p>Views</p>
             </div>
           </div>
         </div>
@@ -272,38 +264,32 @@
         <div class="video-grid">
           <div class="video-card">
             <div class="video-thumbnail">
-              <img src="Dosa Batter.jpg" alt="Video Thumbnail" />
+              <img src="Christmas Cake.jpg" alt="Christmas Cake Recipe" />
               <div class="play-button">
                 <i class="fas fa-play"></i>
               </div>
             </div>
-            <h3>ধোসার ব্যাটার | Dosa Batter Recipe</h3>
+            <h3>Christmas Cake Recipe</h3>
           </div>
 
           <div class="video-card">
             <div class="video-thumbnail">
-              <img
-                src="90's Chicken Recipie.jpg"
-                alt="Video Thumbnail"
-              />
+              <img src="Carrot Kheer.jpg" alt="Carrot Kheer Recipe" />
               <div class="play-button">
                 <i class="fas fa-play"></i>
               </div>
             </div>
-            <h3>মুরগির মাংস | Chicken Curry Recipe</h3>
+            <h3>Carrot Kheer Recipe</h3>
           </div>
 
           <div class="video-card">
             <div class="video-thumbnail">
-              <img
-                src="Egg Tadka Recipe.jpg"
-                alt="Video Thumbnail"
-              />
+              <img src="Basanti Pulao.jpg" alt="Basanti Pulao Recipe" />
               <div class="play-button">
                 <i class="fas fa-play"></i>
               </div>
             </div>
-            <h3>ডিম তড়কা | Egg Tadka Recipe</h3>
+            <h3>Basanti Pulao Recipe</h3>
           </div>
         </div>
 
@@ -313,7 +299,7 @@
             target="_blank"
             class="btn btn-youtube"
           >
-            <i class="fab fa-youtube"></i> Watch More on YouTube
+            <i class="fab fa-youtube"></i> Visit Our YouTube Channel
           </a>
         </div>
       </div>
@@ -326,25 +312,31 @@
         <div class="contact-content">
           <div class="contact-info">
             <h3>Contact Information</h3>
-            <p><i class="fas fa-envelope"></i> debdas0310@gmail.com</p>
-            <p>For collaborations or inquiries, feel free to contact us!</p>
+            <p><i class="fas fa-envelope"></i> debsflavorjunction@gmail.com</p>
+            <p><i class="fas fa-phone"></i> +91 98765 43210</p>
+            <p>
+              <i class="fas fa-map-marker-alt"></i> Kolkata, West Bengal, India
+            </p>
 
             <div class="social-links-large">
               <a
                 href="https://youtube.com/@debsflavorjunction?si=5f8spOsoht48cDJE"
                 target="_blank"
+                class="social-youtube"
               >
-                <i class="fab fa-youtube"></i> YouTube
+                <i class="fab fa-youtube"></i> YouTube Channel
               </a>
               <a
                 href="https://www.facebook.com/profile.php?id=61565698615807&mibextid=ZbWKwL"
                 target="_blank"
+                class="social-facebook"
               >
-                <i class="fab fa-facebook"></i> Facebook
+                <i class="fab fa-facebook"></i> Facebook Page
               </a>
               <a
                 href="https://www.instagram.com/debsflavor?igsh=eXBIbF0Ym1tbThk"
                 target="_blank"
+                class="social-instagram"
               >
                 <i class="fab fa-instagram"></i> Instagram
               </a>
@@ -356,10 +348,10 @@
             <p>
               Get the latest recipes and cooking tips delivered to your inbox!
             </p>
-            <form class="newsletter-form">
-              <input type="email" placeholder="Enter your email" required />
-              <button type="submit" class="btn btn-primary">Subscribe</button>
-            </form>
+            <div class="newsletter-form">
+              <input type="email" placeholder="Enter your email address" />
+              <button class="btn btn-primary">Subscribe</button>
+            </div>
           </div>
         </div>
       </div>
@@ -370,98 +362,142 @@
       <div class="container">
         <div class="footer-content">
           <div class="footer-logo">
-            <img src="dfj logo2.jpg" alt="Deb's Flavor Junction" class="footer-logo-img">
+            <img
+              src="dfj logo2.jpg"
+              alt="Deb's Flavor Junction"
+              class="footer-logo-img"
+            />
             <h3>
               <span class="logo-orange">Deb's Flavor</span>
               <span class="logo-green">Junction</span>
             </h3>
-            <p>Bringing authentic Bengali flavors to your kitchen</p>
+            <p>
+              Bringing authentic Bengali flavors to your kitchen with love and
+              tradition.
+            </p>
           </div>
 
           <div class="footer-links">
-            <h4>Quick Links</h4>
+            <h4><i class="fas fa-link"></i> Quick Links</h4>
             <ul>
-              <li><a href="index.html">Home</a></li>
-              <li><a href="recipes.html">Recipes</a></li>
-              <li><a href="#videos">Videos</a></li>
-              <li><a href="#about">About</a></li>
-              <li><a href="#contact">Contact</a></li>
+              <li>
+                <a href="#home"><i class="fas fa-home"></i> Home</a>
+              </li>
+              <li>
+                <a href="recipes.html"
+                  ><i class="fas fa-utensils"></i> Recipes</a
+                >
+              </li>
+              <li>
+                <a href="members.html"
+                  ><i class="fas fa-crown"></i> Members Only</a
+                >
+              </li>
+              <li>
+                <a href="#videos"><i class="fas fa-video"></i> Videos</a>
+              </li>
+              <li>
+                <a href="#about"><i class="fas fa-info-circle"></i> About</a>
+              </li>
+              <li>
+                <a href="#contact"><i class="fas fa-envelope"></i> Contact</a>
+              </li>
             </ul>
           </div>
 
           <div class="footer-social">
-            <h4>Follow Us</h4>
+            <h4><i class="fas fa-share-alt"></i> Follow Us</h4>
             <div class="social-links">
               <a
                 href="https://youtube.com/@debsflavorjunction?si=5f8spOsoht48cDJE"
                 target="_blank"
-                ><i class="fab fa-youtube"></i
-              ></a>
+                class="social-youtube"
+              >
+                <i class="fab fa-youtube"></i> YouTube
+              </a>
               <a
                 href="https://www.facebook.com/profile.php?id=61565698615807&mibextid=ZbWKwL"
                 target="_blank"
-                ><i class="fab fa-facebook"></i
-              ></a>
+                class="social-facebook"
+              >
+                <i class="fab fa-facebook"></i> Facebook
+              </a>
               <a
                 href="https://www.instagram.com/debsflavor?igsh=eXBIbF0Ym1tbThk"
                 target="_blank"
-                ><i class="fab fa-instagram"></i
-              ></a>
+                class="social-instagram"
+              >
+                <i class="fab fa-instagram"></i> Instagram
+              </a>
+            </div>
+          </div>
+
+          <div class="footer-newsletter">
+            <h4><i class="fas fa-bell"></i> Stay Updated</h4>
+            <p>Subscribe for new recipes and cooking tips!</p>
+            <div class="footer-newsletter-form">
+              <input type="email" placeholder="Your email" />
+              <button><i class="fas fa-paper-plane"></i></button>
             </div>
           </div>
         </div>
 
         <div class="footer-bottom">
-          <p>&copy; 2024 Deb's Flavour Junction. All rights reserved.</p>
-          <p style="margin-top: 10px; font-size: 0.9rem; color: #888;">Website developed by Mr.X</p>
+          <p>
+            &copy; 2024 Deb's Flavor Junction. All rights reserved. Made with ❤️
+            for food lovers worldwide.
+          </p>
+          <p style="margin-top: 10px; font-size: 0.9rem; color: #888">
+            Website developed by Mr.X
+          </p>
         </div>
       </div>
     </footer>
 
     <!-- Membership Modal -->
-    <div class="membership-modal">
+    <div class="membership-modal" id="membershipModal">
       <div class="membership-modal-content">
         <div class="membership-modal-header">
-          <button class="membership-modal-close">&times;</button>
+          <button class="membership-modal-close" id="closeModal">
+            &times;
+          </button>
           <i class="fas fa-crown"></i>
-          <h3>Join Our Exclusive Membership!</h3>
-          <p>Unlock Premium Bengali Cooking Content</p>
+          <h3>Join Our Premium Membership</h3>
+          <p>Unlock exclusive recipes and cooking secrets!</p>
         </div>
         <div class="membership-modal-body">
-          <h4>🌟 Membership Perks:</h4>
           <ul class="membership-perks">
             <li>
-              <i class="fas fa-video"></i> Access to exclusive members-only
-              recipe videos
+              <i class="fas fa-check"></i> Access to 50+ exclusive premium
+              recipes
             </li>
+            <li><i class="fas fa-check"></i> Step-by-step video tutorials</li>
             <li>
-              <i class="fas fa-book-open"></i> Downloadable recipe PDFs with
-              detailed instructions
-            </li>
-            <li>
-              <i class="fas fa-comments"></i> Direct chat access with Chef
+              <i class="fas fa-check"></i> Personal cooking tips from Chef
               Debdas
             </li>
+            <li><i class="fas fa-check"></i> Monthly live cooking sessions</li>
             <li>
-              <i class="fas fa-star"></i> Early access to new recipes before
-              public release
+              <i class="fas fa-check"></i> Recipe customization for dietary
+              needs
             </li>
             <li>
-              <i class="fas fa-gift"></i> Monthly live cooking sessions with Q&A
-            </li>
-            <li>
-              <i class="fas fa-heart"></i> Special Bengali festival recipe
-              collections
+              <i class="fas fa-check"></i> Priority support and recipe requests
             </li>
           </ul>
           <div class="membership-cta">
-            <a href="members.html">
-              <i class="fas fa-crown"></i> Become a Member Now
+            <a href="members.html" class="membership-btn">
+              <i class="fas fa-crown"></i> Join Now - ₹299/month
             </a>
           </div>
         </div>
       </div>
     </div>
+
+    <!-- Back to Top Button -->
+    <button class="back-to-top" id="backToTop">
+      <i class="fas fa-arrow-up"></i>
+    </button>
 
     <script src="script.js"></script>
   </body>
