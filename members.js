@@ -109,7 +109,7 @@ class MemberAuthentication {
             {
                 title: 'গোপন পারিবারিক বিরিয়ানি | Secret Family Biryani',
                 desc: 'Our family\'s secret biryani recipe passed down for generations',
-                image: 'dfj recipe imgs/Basanti Pulao.jpg',
+                image: 'https://via.placeholder.com/300x200/4a4a4a/ffffff?text=Secret+Biryani',
                 time: '2 hours',
                 difficulty: 'Expert',
                 videoUrl: 'https://youtube.com/@debsflavorjunction?si=5f8spOsoht48cDJE'
@@ -117,7 +117,7 @@ class MemberAuthentication {
             {
                 title: 'রাজকীয় মাটন কোর্মা | Royal Mutton Korma',
                 desc: 'Authentic royal-style mutton korma with secret spices',
-                image: 'dfj recipe imgs/Kadhai Chicken Recipe.jpg',
+                image: 'https://via.placeholder.com/300x200/5a5a5a/ffffff?text=Royal+Korma',
                 time: '90 mins',
                 difficulty: 'Hard',
                 videoUrl: 'https://youtube.com/@debsflavorjunction?si=5f8spOsoht48cDJE'
@@ -125,7 +125,7 @@ class MemberAuthentication {
             {
                 title: 'বিশেষ চিংড়ি মালাইকারি | Special Prawn Malaikari',
                 desc: 'Premium prawn curry with coconut milk and special herbs',
-                image: 'dfj recipe imgs/Chingrir Bharta .jpg',
+                image: 'https://via.placeholder.com/300x200/6a6a6a/ffffff?text=Prawn+Malaikari',
                 time: '45 mins',
                 difficulty: 'Medium',
                 videoUrl: 'https://youtube.com/@debsflavorjunction?si=5f8spOsoht48cDJE'
@@ -133,17 +133,16 @@ class MemberAuthentication {
             {
                 title: 'হীরক রাজার মিষ্টি | Diamond King\'s Sweet',
                 desc: 'Exclusive sweet recipe from royal Bengali kitchen',
-                image: 'dfj recipe imgs/Vapa pithe.jpg',
+                image: 'https://via.placeholder.com/300x200/7a7a7a/ffffff?text=Diamond+Sweet',
                 time: '3 hours',
                 difficulty: 'Expert',
                 videoUrl: 'https://youtube.com/@debsflavorjunction?si=5f8spOsoht48cDJE'
             }
         ];
 
-        const recipesToShow = tier === 'bronze' ? exclusiveRecipes.slice(0, 4) : 
-                              tier === 'silver' ? exclusiveRecipes.slice(0, 7) : exclusiveRecipes;
+        const recipeCount = tier === 'bronze' ? 4 : tier === 'silver' ? 7 : exclusiveRecipes.length;
         
-        recipesGrid.innerHTML = recipesToShow.map(recipe => `
+        recipesGrid.innerHTML = exclusiveRecipes.slice(0, recipeCount).map(recipe => `
             <div class="recipe-item">
                 <div class="recipe-card-full recipe-card-unlocked">
                     <img src="${recipe.image}" alt="${recipe.title}">
@@ -164,36 +163,6 @@ class MemberAuthentication {
                 </div>
             </div>
         `).join('');
-
-        // Add more exclusive recipes
-        const moreRecipes = [
-            {
-                title: 'সোনালী পোলাও | Golden Pulao',
-                desc: 'Royal golden pulao with saffron and dry fruits',
-                image: 'dfj recipe imgs/Basanti Pulao.jpg',
-                time: '60 mins',
-                difficulty: 'Medium',
-                videoUrl: 'https://youtube.com/@debsflavorjunction?si=5f8spOsoht48cDJE'
-            },
-            {
-                title: 'রাজকীয় ফিরনি | Royal Firni',
-                desc: 'Creamy royal firni with cardamom and pistachios',
-                image: 'dfj recipe imgs/Carrot Kheer.jpg',
-                time: '90 mins',
-                difficulty: 'Hard',
-                videoUrl: 'https://youtube.com/@debsflavorjunction?si=5f8spOsoht48cDJE'
-            },
-            {
-                title: 'বিশেষ কাবাব | Special Kabab',
-                desc: 'Authentic Bengali kabab with secret marinade',
-                image: 'dfj recipe imgs/90\'s Chicken Recipie.jpg',
-                time: '2 hours',
-                difficulty: 'Expert',
-                videoUrl: 'https://youtube.com/@debsflavorjunction?si=5f8spOsoht48cDJE'
-            }
-        ];
-        
-        exclusiveRecipes.push(...moreRecipes);
         
         // Add click handlers for premium recipes
         this.addPremiumRecipeHandlers();
@@ -345,13 +314,12 @@ class MemberAuthentication {
     }
 
     showPremiumRecipeModal(card) {
-        // Create premium modal with full recipe details
         const modal = document.createElement('div');
         modal.className = 'recipe-modal premium-modal active';
         
-        const title = card.querySelector('h3').textContent;
+        const { textContent: title } = card.querySelector('h3');
         const img = card.querySelector('img');
-        const desc = card.querySelector('.recipe-desc').textContent;
+        const { textContent: desc } = card.querySelector('.recipe-desc');
         
         modal.innerHTML = `
             <div class="recipe-modal-content premium-modal-content">
@@ -396,16 +364,13 @@ class MemberAuthentication {
         document.body.appendChild(modal);
         document.body.style.overflow = 'hidden';
 
-        // Close modal events
-        modal.addEventListener('click', (e) => {
-            if (e.target === modal) {
+        const closeHandler = (e) => {
+            if (e.target === modal || e.target.closest('.recipe-modal-close')) {
                 this.closePremiumModal(modal);
             }
-        });
-
-        modal.querySelector('.recipe-modal-close').addEventListener('click', () => {
-            this.closePremiumModal(modal);
-        });
+        };
+        
+        modal.addEventListener('click', closeHandler);
     }
 
     closePremiumModal(modal) {
@@ -414,36 +379,9 @@ class MemberAuthentication {
     }
 }
 
-// Theme Manager for Members Page - Optimized
-class MembersThemeManager {
-    constructor() {
-        this.themeButton = document.getElementById('themeToggle');
-        this.themes = ['gradient-light', 'light', 'dark'];
-        this.icons = ['fas fa-palette', 'fas fa-sun', 'fas fa-moon'];
-        this.currentTheme = 0;
-        this.init();
-    }
-
-    init() {
-        if (this.themeButton) {
-            this.themeButton.addEventListener('click', () => this.toggleTheme());
-        }
-    }
-
-    toggleTheme() {
-        this.currentTheme = (this.currentTheme + 1) % this.themes.length;
-        const theme = this.themes[this.currentTheme];
-        document.documentElement.setAttribute('data-theme', theme);
-        
-        const icon = this.themeButton.querySelector('i');
-        icon.className = this.icons[this.currentTheme];
-    }
-}
-
 // Initialize when DOM is loaded
 document.addEventListener('DOMContentLoaded', () => {
     new MemberAuthentication();
-    new MembersThemeManager();
     
     // Add premium styling to modal
     const style = document.createElement('style');
