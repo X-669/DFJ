@@ -1,81 +1,51 @@
 // OPTIMIZED JAVASCRIPT - DEB'S FLAVOR JUNCTION
 
-// Theme Management
-class ThemeManager {
-    constructor() {
-        this.themes = ['gradient-light', 'light', 'dark'];
-        this.currentThemeIndex = 0;
-        this.themeButton = document.getElementById('themeToggle');
-        this.themeIcons = ['fas fa-palette', 'fas fa-sun', 'fas fa-moon'];
-        
-        this.init();
+// Shared Utilities
+const Utils = {
+    showToast(message, type = 'success') {
+        const toast = document.createElement('div');
+        toast.textContent = message;
+        toast.className = `toast toast-${type}`;
+        document.body.appendChild(toast);
+        setTimeout(() => toast.remove(), 3000);
+    },
+    
+    validateEmail(email) {
+        return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email);
+    },
+    
+    createModal(className = 'modal') {
+        const modal = document.createElement('div');
+        modal.className = className;
+        return modal;
     }
+};
 
-    init() {
-        const savedTheme = localStorage.getItem('dfj-theme') || 'gradient-light';
-        this.currentThemeIndex = this.themes.indexOf(savedTheme);
-        if (this.currentThemeIndex === -1) this.currentThemeIndex = 0;
-        
-        this.applyTheme();
-        if (this.themeButton) {
-            this.themeButton.addEventListener('click', () => this.toggleTheme());
-        }
-    }
-
-    toggleTheme() {
-        this.currentThemeIndex = (this.currentThemeIndex + 1) % this.themes.length;
-        this.applyTheme();
-        this.saveTheme();
-    }
-
-    applyTheme() {
-        const theme = this.themes[this.currentThemeIndex];
-        document.documentElement.setAttribute('data-theme', theme);
-        
-        if (this.themeButton) {
-            const icon = this.themeButton.querySelector('i');
-            if (icon) {
-                icon.className = this.themeIcons[this.currentThemeIndex];
-            }
-        }
-        
-        document.body.style.transition = 'all 0.3s ease';
-    }
-
-    saveTheme() {
-        localStorage.setItem('dfj-theme', this.themes[this.currentThemeIndex]);
-    }
-}
-
-// Mobile Navigation
+// Optimized Mobile Navigation
 class MobileNav {
     constructor() {
         this.hamburger = document.querySelector('.hamburger');
         this.navMenu = document.querySelector('.nav-menu');
-        this.navLinks = document.querySelectorAll('.nav-menu a');
-        
         this.init();
     }
 
     init() {
-        if (this.hamburger && this.navMenu) {
-            this.hamburger.addEventListener('click', () => this.toggleMenu());
-            
-            this.navLinks.forEach(link => {
-                link.addEventListener('click', () => this.closeMenu());
-            });
-
-            document.addEventListener('click', (e) => {
-                if (!this.hamburger.contains(e.target) && !this.navMenu.contains(e.target)) {
-                    this.closeMenu();
-                }
-            });
-        }
+        if (!this.hamburger || !this.navMenu) return;
+        
+        this.hamburger.addEventListener('click', () => this.toggleMenu());
+        this.navMenu.addEventListener('click', (e) => {
+            if (e.target.tagName === 'A') this.closeMenu();
+        });
+        document.addEventListener('click', (e) => {
+            if (!this.hamburger.contains(e.target) && !this.navMenu.contains(e.target)) {
+                this.closeMenu();
+            }
+        });
     }
 
     toggleMenu() {
-        this.hamburger.classList.toggle('active');
-        this.navMenu.classList.toggle('active');
+        const isActive = this.hamburger.classList.toggle('active');
+        this.navMenu.classList.toggle('active', isActive);
     }
 
     closeMenu() {
@@ -131,39 +101,23 @@ class HeaderScroll {
 // Newsletter Form Handler
 class NewsletterForm {
     constructor() {
-        this.form = document.querySelector('.newsletter-form');
-        this.init();
-    }
-
-    init() {
-        if (this.form) {
-            this.form.addEventListener('submit', (e) => this.handleSubmit(e));
+        const form = document.querySelector('.newsletter-form');
+        if (form) {
+            form.addEventListener('submit', (e) => {
+                e.preventDefault();
+                const email = form.querySelector('input[type="email"]')?.value;
+                if (email && Utils.validateEmail(email)) {
+                    this.showToast('Thank you for subscribing! 🎉', 'success');
+                    form.reset();
+                } else {
+                    this.showToast('Please enter a valid email address.', 'error');
+                }
+            });
         }
     }
 
-    handleSubmit(e) {
-        e.preventDefault();
-        const email = this.form.querySelector('input[type="email"]')?.value;
-        
-        if (email && this.validateEmail(email)) {
-            this.showMessage('Thank you for subscribing! 🎉', 'success');
-            this.form.reset();
-        } else {
-            this.showMessage('Please enter a valid email address.', 'error');
-        }
-    }
-
-    validateEmail(email) {
-        const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-        return emailRegex.test(email);
-    }
-
-    showMessage(message, type) {
-        const messageEl = document.createElement('div');
-        messageEl.textContent = message;
-        messageEl.className = `toast toast-${type}`;
-        document.body.appendChild(messageEl);
-        setTimeout(() => messageEl.remove(), 3000);
+    showToast(message, type) {
+        Utils.showToast(message, type);
     }
 }
 
@@ -255,46 +209,45 @@ class MembershipModal {
     }
 }
 
-// Performance Optimization - Streamlined
-class PerformanceOptimizer {
+// Preload critical images
+function preloadImages() {
+    const images = ['dfj logo2.jpg', 'Christmas Cake.jpg', 'Carrot Kheer.jpg', 'Basanti Pulao.jpg'];
+    const loadImages = () => images.forEach(src => { const img = new Image(); img.src = src; });
+    'requestIdleCallback' in window ? requestIdleCallback(loadImages) : setTimeout(loadImages, 100);
+}
+
+// Unified Theme Management
+class ThemeManager {
     constructor() {
-        this.preloadCriticalImages();
+        this.themes = ['light', 'dark', 'gradient'];
+        this.themeIcons = ['fas fa-sun', 'fas fa-moon', 'fas fa-palette'];
+        this.themeButton = document.getElementById('themeToggle');
+        this.currentThemeIndex = 0;
+        this.init();
     }
 
-    preloadCriticalImages() {
-        const criticalImages = [
-            'dfj logo2.jpg',
-            'Christmas Cake.jpg',
-            'Carrot Kheer.jpg',
-            'Basanti Pulao.jpg'
-        ];
+    init() {
+        const savedTheme = localStorage.getItem('dfj-theme') || 'light';
+        this.currentThemeIndex = Math.max(0, this.themes.indexOf(savedTheme));
+        this.applyTheme();
+        this.themeButton?.addEventListener('click', () => this.toggleTheme());
+    }
 
-        // Use requestIdleCallback for better performance
-        if ('requestIdleCallback' in window) {
-            requestIdleCallback(() => {
-                criticalImages.forEach(src => {
-                    const img = new Image();
-                    img.src = src;
-                });
-            });
-        } else {
-            setTimeout(() => {
-                criticalImages.forEach(src => {
-                    const img = new Image();
-                    img.src = src;
-                });
-            }, 100);
-        }
+    toggleTheme() {
+        this.currentThemeIndex = (this.currentThemeIndex + 1) % this.themes.length;
+        this.applyTheme();
+        localStorage.setItem('dfj-theme', this.themes[this.currentThemeIndex]);
+    }
+
+    applyTheme() {
+        document.documentElement.setAttribute('data-theme', this.themes[this.currentThemeIndex]);
+        const icon = this.themeButton?.querySelector('i');
+        if (icon) icon.className = this.themeIcons[this.currentThemeIndex];
     }
 }
 
 // Initialize all components when DOM is loaded
 document.addEventListener('DOMContentLoaded', () => {
-    if (!localStorage.getItem('dfj-theme')) {
-        localStorage.setItem('dfj-theme', 'gradient-light');
-    }
-    document.documentElement.setAttribute('data-theme', localStorage.getItem('dfj-theme') || 'gradient-light');
-    
     new ThemeManager();
     new MobileNav();
     new SmoothScroll();
@@ -304,7 +257,7 @@ document.addEventListener('DOMContentLoaded', () => {
     new RecipeInteractions();
     new BackToTop();
     new MembershipModal();
-    new PerformanceOptimizer();
+    preloadImages();
 });
 
 // Export for use in other files
